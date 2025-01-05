@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [relationshipType, setRelationshipType] = useState("");
-  const [genres, setGenres] = useState("");
-  const [mood, setMood] = useState("");
+  const [userInput, setUserInput] = useState(""); // Single input for user expression
   const [playlistLink, setPlaylistLink] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -14,9 +12,7 @@ function App() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        relationship_type: relationshipType,
-        genres: genres,
-        mood: mood
+        info: userInput
       })
     });
     const data = await response.json();
@@ -26,41 +22,30 @@ function App() {
 
   return (
     <div>
-      <h1>AI Romantic Playlist Generator</h1>
-      <input
-        className="relationship-type-input"
-        type="text"
-        placeholder="Relationship Type (e.g., Long-distance)"
-        value={relationshipType}
-        onChange={(e) => setRelationshipType(e.target.value)}
-      />
-      <input
-        className="genres-input"
-        type="text"
-        placeholder="Genres (e.g., Pop, Acoustic)"
-        value={genres}
-        onChange={(e) => setGenres(e.target.value)}
-      />
-      <input
-        className="mood-input"
-        type="text"
-        placeholder="Mood (e.g., Chill, Romantic)"
-        value={mood}
-        onChange={(e) => setMood(e.target.value)}
-      />
-      <button onClick={generatePlaylist}>Generate Playlist</button>
+      <a href="https://github.com/rishabhpandey106/soulsync"><h1>SoulSyn&copy;</h1></a>
+      <p>Tell us what you're feeling, what you love, or the kind of songs you want, and we'll create a personalized playlist just for you!</p>
+      <section className="user-input-section">
+        <textarea
+          className="user-input"
+          placeholder="Express yourself (e.g., 'I want songs that make me feel energized and inspired' or 'I'm in love and need a romantic playlist')"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+        />
+        <button onClick={generatePlaylist} disabled={loading || !userInput.trim()} className='btn'>
+          {loading ? "Generating..." : "Generate Playlist"}
+        </button>
+      </section>
 
       {loading && (
         <div className="skeleton-loader">
-          {/* <h3 className="skeleton skeleton-text">............</h3> */}
-          <a href='#' className="skeleton skeleton-button">Loading</a>
+          <a href="#" className="skeleton skeleton-button">Loading</a>
         </div>
       )}
 
       {playlistLink && !loading && (
         <div className="playlist-link">
           <h3>Your Playlist:</h3>
-          <a href={playlistLink} target="_blank" rel="noopener noreferrer">Click here to open your romantic playlist</a>
+          <a href={playlistLink} target="_blank" rel="noopener noreferrer">Click here to open your personalized playlist</a>
         </div>
       )}
     </div>

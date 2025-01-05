@@ -1,18 +1,22 @@
-/* General Reset */
 body, html {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
   color: #fff;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  animation: fadeIn 1.5s ease-in-out;
+  background-color: #fd507d;
+  background-image: 
+    radial-gradient(rgba(241, 245, 0, 0.8) 0.75px, transparent 0.75px), 
+    radial-gradient(rgba(241, 245, 0, 0.8) 0.75px, #fd507d 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
 }
 
-/* Container Styling */
 div {
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
@@ -23,48 +27,36 @@ div {
   animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Title Styling */
 h1 {
   font-size: 3rem;
   margin-bottom: 20px;
   background: linear-gradient(90deg, #ff5f6d, #ff5f6d);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
-  font-weight: 700;
+  /* color: transparent; */
+  color:#ff3d67;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  animation: slideIn 1s ease-in-out, glowPulse 2s infinite alternate;
+  animation: fadeIn 1.5s ease-in-out, glowPulse 1.5s infinite alternate;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
-/* Input Fields */
-input {
-  width: 80%;
-  max-width: 400px;
-  padding: 10px 15px;
-  margin: 10px 0;
-  font-size: 1rem;
-  border: 2px solid #ffebee;
-  border-radius: 30px;
-  outline: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  transition: all 0.3s ease-in-out;
+p{
+  color: #fd4476;
+  font-weight: 600;
 }
 
-.relationship-type-input {
-  margin-right: 4px;
-}
-
-.mood-input {
-  margin-right: 24px;
-}
-
-input:focus {
-  background: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 4px 8px rgba(241, 245, 0, 0.2);
+  }
+  50% {
+    text-shadow: 0 8px 15px rgba(241, 245, 0, 0.4);
+  }
+  100% {
+    text-shadow: 0 4px 8px rgba(241, 245, 0, 0.2);
+  }
 }
 
 /* Button Styling */
@@ -75,7 +67,6 @@ button {
   color: #fff;
   padding: 12px 30px;
   font-size: 1.1rem;
-  margin-top: 20px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -86,23 +77,6 @@ button:hover {
   transform: scale(1.1);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
-
-/* Playlist Link Styling */
-a {
-  display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-  color: #ffe259;
-  font-weight: bold;
-  font-size: 1.2rem;
-  transition: color 0.3s ease-in-out;
-}
-
-a:hover {
-  color: #ff7eb3;
-  text-decoration: underline;
-}
-
 /* Animations */
 @keyframes fadeIn {
   from {
@@ -139,12 +113,12 @@ a:hover {
   color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  animation: pulse 2s infinite;
+  /* animation: pulse 2s infinite; */
 }
 
 .playlist-link a {
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #f75771;
   text-decoration: none;
   font-weight: bold;
   padding: 10px 20px;
@@ -152,11 +126,12 @@ a:hover {
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s infinite;
 }
 
 .playlist-link a:hover {
   background: rgba(255, 255, 255, 0.4);
-  color: #ff758c;
+  color: brown;
   transform: scale(1.1);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
@@ -224,3 +199,39 @@ a:hover {
     background-color: #e0e0e0;
   }
 }
+
+/* Textarea Styling */
+textarea {
+  width: 80%;
+  max-width: 400px;
+  min-height: 100px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 2px solid #ffebee;
+  border-radius: 15px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: rgb(77, 74, 74);
+  resize: none;
+  transition: all 0.3s ease-in-out;
+}
+
+textarea:focus {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  border-color: #ffc371;
+}
+
+.user-input-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  gap: 15px;
+}
+
+
+

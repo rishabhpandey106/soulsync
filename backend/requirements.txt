@@ -1,0 +1,6 @@
+Flask
+python-dotenv
+Flask-Cors
+google-generativeai
+spotipy
+phi

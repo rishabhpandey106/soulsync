@@ -112,5 +112,5 @@ def fetch_songs_from_spotify(playlist_description):
     
     return song_ids
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)

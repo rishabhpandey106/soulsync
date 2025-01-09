@@ -8,7 +8,7 @@ function App() {
 
   const generatePlaylist = async () => {
     setLoading(true);
-    const response = await fetch("http://127.0.0.1:5000/generate_playlist", {
+    const response = await fetch("https://ssync.vercel.app/generate_playlist", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
